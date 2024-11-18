@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 
 export async function GET(request) {
     const apiKey = process.env.PAGERDUTY_API_KEY;
+    console.log(process);
+    console.log(process.env);
+    console.log(process.env.PAGERDUTY_API_KEY);
 
     if (!apiKey) {
         // Log the missing API key for debugging purposes
