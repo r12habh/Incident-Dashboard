@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PagerDuty Incident Dashboard
+
+A React-based dashboard for monitoring and managing PagerDuty incidents. Built with Next.js and modern React practices.
+
+## Features
+
+- Real-time incident monitoring
+- Advanced filtering and search capabilities
+- Interactive data visualization
+- Responsive design for all device sizes
+- Mock data support for development and testing
+
+## Key Components
+
+- **IncidentDashboard**: Main dashboard component displaying incident overview
+- **FilterBar**: Advanced filtering interface for incidents
+- **IncidentCard**: Individual incident display cards
+- **IncidentChart**: Data visualization for incident statistics
+- **Stats**: Quick overview of key metrics
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Configure environment variables:
+   Create a `.env.local` file with:
+
+```env
+PAGERDUTY_API_KEY=your_api_key_here
+NEXT_PUBLIC_API_URL=https://api.pagerduty.com/incidents
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Development Modes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Live API Mode
+By default, the dashboard connects to the PagerDuty API. Ensure you have proper API credentials configured.
+
+### Mock Data Mode
+For development without API access, append `?mock=true` to the URL:
+```
+http://localhost:3000?mock=true
+```
+
+## Architecture
+
+### Frontend Components
+- **IncidentDashboard.jsx**: Main container component
+- **FilterBar.jsx**: Handles all filtering logic
+- **useIncidents.js**: Custom hook for incident data management
+- **incidentHelpers.js**: Utility functions for incident data processing
+
+### Key Features
+1. **Incident Management**
+   - Real-time incident display
+   - Status tracking
+   - Urgency levels
+   - Service categorization
+
+2. **Filtering Capabilities**
+   - Status filters
+   - Urgency filters
+   - Date range selection
+   - Service-based filtering
+   - Text search
+
+3. **Data Visualization**
+   - Service-based incident distribution
+   - Status breakdowns
+   - Urgency level statistics
+
+## Error Handling
+
+The application includes comprehensive error handling:
+- API connection failures
+- Data loading states
+- Empty state handling
+- Invalid filter combinations
+
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [PagerDuty API Reference](https://developer.pagerduty.com/api-reference/)
+- [React Documentation](https://reactjs.org/docs)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - see the LICENSE file for details.
