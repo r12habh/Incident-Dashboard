@@ -34,7 +34,7 @@ yarn install
 
 ```env
 PAGERDUTY_API_KEY=your_api_key_here
-NEXT_PUBLIC_API_URL=https://api.pagerduty.com/incidents
+
 ```
 
 4. Run the development server:
