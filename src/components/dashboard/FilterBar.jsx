@@ -114,8 +114,8 @@ const FilterBar = ({ filters, setFilters, selectedService, setSelectedService, s
                                 <SelectItem value="created_at:asc">Oldest First</SelectItem>
                                 <SelectItem value="incident_number:desc">Incident Number (High to Low)</SelectItem>
                                 <SelectItem value="incident_number:asc">Incident Number (Low to High)</SelectItem>
-                                <SelectItem value="urgency:desc">Urgency (High to Low)</SelectItem>
-                                <SelectItem value="urgency:asc">Urgency (Low to High)</SelectItem>
+                                <SelectItem value="urgency:asc">Urgency (High to Low)</SelectItem>
+                                <SelectItem value="urgency:desc">Urgency (Low to High)</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>

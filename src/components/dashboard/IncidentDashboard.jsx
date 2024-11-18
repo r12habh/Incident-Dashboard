@@ -25,7 +25,7 @@ const SearchBar = ({ searchTerm, handleSearchChange }) => (
   </div>
 );
 
-const Header = ({ dataSource }) => (
+const Header = ({ dataSource, searchTerm, handleSearchChange }) => (
   <div className="flex items-center justify-between mb-6">
     <div>
       <h1 className="text-3xl font-bold flex items-center gap-2">
@@ -36,7 +36,7 @@ const Header = ({ dataSource }) => (
         {dataSource === 'api' ? 'Live Data' : 'Mock Data'}
       </Badge>
     </div>
-    <SearchBar />
+    <SearchBar searchTerm={searchTerm} handleSearchChange={handleSearchChange} />
   </div>
 );
 
@@ -101,7 +101,11 @@ const IncidentDashboard = () => {
 
   return (
     <div className="container mx-auto p-4 space-y-4">
-      <Header dataSource={dataSource} />
+      <Header 
+        dataSource={dataSource} 
+        searchTerm={searchTerm}
+        handleSearchChange={handleSearchChange}
+      />
       
       <FilterBar 
         filters={filters}
