@@ -24,9 +24,7 @@ A React-based dashboard for monitoring and managing PagerDuty incidents. Built w
 2. Install dependencies:
 
 ```bash
-npm install
-# or
-yarn install
+npm install --legacy-peer-deps  
 ```
 
 3. Configure environment variables:
@@ -41,8 +39,6 @@ PAGERDUTY_API_KEY=your_api_key_here
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
@@ -53,7 +49,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 By default, the dashboard connects to the PagerDuty API. Ensure you have proper API credentials configured.
 
 ### Mock Data Mode
-For development without API access, append `?mock=true` to the URL:
+Append `?mock=true` to the URL:
 ```
 http://localhost:3000?mock=true
 ```
