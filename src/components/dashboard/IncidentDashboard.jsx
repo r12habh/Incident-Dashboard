@@ -46,7 +46,9 @@ const INITIAL_FILTERS = {
   sortBy: 'created_at:desc'
 };
 
+// Main container component that manages state and data flow
 const IncidentDashboard = () => {
+  // Centralized state for filters and search
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedService, setSelectedService] = useState('all');
   const [filters, setFilters] = useState(INITIAL_FILTERS);
@@ -58,6 +60,7 @@ const IncidentDashboard = () => {
     return ['all', ...Array.from(serviceSet)];
   }, [allIncidents]);
 
+  // Memoized calculations to prevent unnecessary re-renders
   const filteredAndSortedIncidents = useMemo(() => {
     const filtered = filterIncidents(allIncidents, filters, searchTerm, selectedService);
     return sortIncidents(filtered, filters.sortBy);
@@ -69,7 +72,7 @@ const IncidentDashboard = () => {
     p1Count: filteredAndSortedIncidents.filter(inc => inc.priority?.summary === 'P1').length
   }), [filteredAndSortedIncidents]);
 
-  const chartData = useMemo(() => 
+  const chartData = useMemo(() =>
     services.map(service => ({
       name: service === 'all' ? 'All Services' : service,
       incidents: filteredAndSortedIncidents.filter(inc =>
@@ -92,13 +95,13 @@ const IncidentDashboard = () => {
 
   return (
     <div className="container mx-auto p-4 space-y-4">
-      <Header 
-        dataSource={dataSource} 
+      <Header
+        dataSource={dataSource}
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
       />
-      
-      <FilterBar 
+
+      <FilterBar
         filters={filters}
         setFilters={setFilters}
         selectedService={selectedService}

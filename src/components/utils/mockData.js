@@ -45,7 +45,7 @@ const generateRandomDate = () => {
 export const generateMockIncidents = () => {
     const { services, titles, teams, priorities } = MOCK_DATA_CONFIG;
 
-    return Array.from({ length: 40 }, (_, index) => {
+    return Array.from({ length: 50 }, (_, index) => {
         const date = generateRandomDate(); // Get a random creation date
         const status = getRandomElement(['triggered', 'acknowledged', 'resolved']); // Random status
         const service = getRandomElement(services); // Random service
@@ -53,11 +53,11 @@ export const generateMockIncidents = () => {
         const team = getRandomElement(teams); // Random team
 
         return {
-            id: `PT${Math.random().toString(36).substr(2, 6).toUpperCase()}`, // Unique ID
+            id: `PT${Math.random().toString(36).toUpperCase()}`, // Unique ID
             type: "incident",
             summary: `[#${1000 + index}] ${getRandomElement(titles)}`, // Random title with an index
-            self: `https://api.pagerduty.com/incidents/PT${Math.random().toString(36).substr(2, 6)}`, // Self URL
-            html_url: `https://subdomain.pagerduty.com/incidents/PT${Math.random().toString(36).substr(2, 6)}`, // HTML URL
+            self: `https://api.pagerduty.com/incidents/PT${Math.random().toString(36)}`, // Self URL
+            html_url: `https://subdomain.pagerduty.com/incidents/PT${Math.random().toString(36)}`, // HTML URL
             incident_number: 1000 + index, // Incremental incident number
             title: getRandomElement(titles), // Random title
             created_at: date.toISOString(), // Created date

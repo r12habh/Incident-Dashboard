@@ -31,7 +31,9 @@ const FILTER_OPTIONS = {
   ]
 };
 
+// Reusable filter component with standardized select inputs
 const FilterSelect = ({ label, value, onChange, options, placeholder }) => (
+  // Generic select component used across different filter types
   <div>
     <label className="text-sm font-medium mb-2 block">{label}</label>
     <Select value={value} onValueChange={onChange}>
@@ -75,7 +77,7 @@ const FilterBar = ({ filters, setFilters, selectedService, setSelectedService, s
             }))}
             placeholder="Select service"
           />
-          
+
           <FilterSelect
             label="Status"
             value={filters.status?.length ? filters.status[0] : 'all'}
@@ -83,7 +85,7 @@ const FilterBar = ({ filters, setFilters, selectedService, setSelectedService, s
             options={FILTER_OPTIONS.status}
             placeholder="Select status"
           />
-          
+
           <FilterSelect
             label="Urgency"
             value={filters.urgency?.length ? filters.urgency[0] : 'all'}
@@ -91,7 +93,7 @@ const FilterBar = ({ filters, setFilters, selectedService, setSelectedService, s
             options={FILTER_OPTIONS.urgency}
             placeholder="Select urgency"
           />
-          
+
           <FilterSelect
             label="Date Range"
             value={filters.dateRange}
@@ -99,7 +101,7 @@ const FilterBar = ({ filters, setFilters, selectedService, setSelectedService, s
             options={FILTER_OPTIONS.dateRange}
             placeholder="Select date range"
           />
-          
+
           <FilterSelect
             label="Sort By"
             value={filters.sortBy}

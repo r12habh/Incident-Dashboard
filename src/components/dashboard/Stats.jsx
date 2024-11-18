@@ -2,9 +2,13 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AlertTriangle, Clock, CheckCircle } from 'lucide-react';
 
+// Dashboard metrics display using card layout
 const Stats = ({ stats }) => {
+    // Grid layout for key metrics with consistent styling
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Metric cards */}
+
             <Card>
                 <CardContent className="pt-6">
                     <div className="flex items-center space-x-2">

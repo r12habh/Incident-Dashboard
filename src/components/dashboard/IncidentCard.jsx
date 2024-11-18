@@ -4,7 +4,9 @@ import { Badge } from '@/components/ui/badge';
 import { Clock, Link2 } from 'lucide-react';
 import { getStatusColor, getUrgencyColor, getServiceSummary } from '../utils/incidentHelpers';
 
+// Card component for displaying individual incident details
 const IncidentCard = ({ incident }) => {
+    // Dynamic styling based on incident status and urgency
     return (
         <Card className="hover:shadow-lg transition-shadow">
             <CardHeader className="pb-2">
